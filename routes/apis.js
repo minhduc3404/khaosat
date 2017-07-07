@@ -403,4 +403,18 @@ router.post('/table_attritute', function(req,res,err){
 	});
 });
 
+
+router.post('/survey_table', function(req, res, err){
+	knex('survey_table')
+	.select('*')
+	.asCallback(function(err, rows){
+		if(!=err){
+			res.send({data:rows}});
+		}
+		else{
+			res.send({data:null});
+		}
+	});
+});
+
 module.exports = router;
